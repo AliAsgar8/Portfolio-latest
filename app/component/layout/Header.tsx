@@ -4,7 +4,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="flex justify-between items-center mt-5 px-5 py-2 font-serif">
+    <nav className="flex justify-between items-center pt-5 px-20 py-2 font-serif">
       <div>
         {/* <Image src="/images/logo.png" width={100} height={25} alt="logo" /> */}
         <h1 className="text-4xl">
@@ -16,7 +16,7 @@ const Header = () => {
         <Link href="/">Work</Link>
         <Link href="/">Contact</Link>
       </div>
-    </div>
+    </nav>
   );
 };
 
