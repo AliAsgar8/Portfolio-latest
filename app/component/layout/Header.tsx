@@ -11,14 +11,13 @@ const Header = () => {
   useEffect(() => {
     const handleLogic = () => {
       const isMobile = window.innerWidth < 768;
-
       if (isMobile) {
         // Mobile: always hamburger
         setShowHamburger(true);
         setIsOpen(false);
       } else {
         // Desktop: scroll based
-        if (window.scrollY > 500) {
+        if (window.scrollY > 50) {
           setShowHamburger(true);
         } else {
           setShowHamburger(false);
@@ -38,7 +37,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white">
+    <header>
       <nav className="flex justify-between items-center pt-5 mx-6 md:mx-20 pb-2 font-serif border-b border-dashed">
         {/* Logo */}
         <h1 className="text-4xl">
@@ -53,11 +52,13 @@ const Header = () => {
             <Link href="/">Contact</Link>
           </div>
         )}
+      </nav>
 
-        {/* Hamburger */}
+      {/* Mobile / Hamburger Slide Menu */}
+      <AnimatePresence>
         {showHamburger && (
           <button
-            className="flex flex-col gap-y-1 z-20"
+            className="fixed right-0 top-0 md:top-10 flex flex-col justify-center items-center gap-y-1 z-20 mx-6 md:mx-24 border-2 h-16 w-16 rounded-full"
             onClick={() => setIsOpen(!isOpen)}
           >
             <span
@@ -77,17 +78,13 @@ const Header = () => {
             />
           </button>
         )}
-      </nav>
-
-      {/* Mobile / Hamburger Slide Menu */}
-      <AnimatePresence>
         {isOpen && showHamburger && (
           <motion.div
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 120, damping: 20 }}
-            className="fixed top-0 right-0 w-full sm:w-[50%] h-full bg-black text-white flex flex-col items-center justify-center gap-10"
+            className="fixed top-0 right-0 w-full sm:w-[50%] h-[100vh] bg-black text-white flex flex-col items-center justify-center gap-10"
           >
             <Link
               href="/"
