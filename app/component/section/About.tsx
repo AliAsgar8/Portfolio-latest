@@ -1,10 +1,11 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useRef } from "react";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+
 import PortfolioImage from "@/public/images/portfolio-image.jpeg";
-import SkillCard from "./SkillCard";
+import SkillCard from "@/app/component/section/SkillCard";
 
 const About = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -47,30 +48,6 @@ const About = () => {
         ref={containerRef}
         className="relative bg-[rgb(30,30,30)] overflow-hidden"
       >
-        {/* SVG PATH — RESPONSIVE */}
-        {/* <svg
-        viewBox="0 0 319 391"
-        fill="none"
-        preserveAspectRatio="xMidYMid meet"
-        className="
-        absolute
-        left-1 sm:left-6 lg:left-10
-        top-10 sm:top-0
-        h-[40%] sm:h-[60%] lg:h-full
-        w-auto
-        opacity-100
-        z-50
-        "
-        >
-        <path
-        ref={pathRef}
-        d="M0.870384 16.492C107.119 10.3165 124.584 22.991 116.87 60.492C83.2064 190.954 110.032 212.596 202.87 200.492C303.703 199.189 319.192 218.314 290.87 279.492C278.491 376.632 241.93 390.71 136.87 361.492"
-        stroke="#D6F446"
-        strokeWidth="8"
-        fill="none"
-        />
-        </svg> */}
-
         <svg
           viewBox="0 0 272 529"
           fill="none"

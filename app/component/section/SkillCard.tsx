@@ -1,6 +1,7 @@
 "use client";
-import { motion, useScroll, useTransform } from "motion/react";
+
 import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 const SkillCard = () => {
   const cardSectionRef = useRef<HTMLDivElement>(null);

@@ -64,17 +64,17 @@ const Header = () => {
             <span
               className={`${
                 isOpen ? "rotate-45 translate-y-2" : ""
-              } w-7 h-[2px] bg-gray-700 transition`}
+              } w-7 h-0.5 bg-gray-700 transition`}
             />
             <span
               className={`${
                 isOpen ? "opacity-0" : ""
-              } w-7 h-[2px] bg-gray-700 transition`}
+              } w-7 h-0.5 bg-gray-700 transition`}
             />
             <span
               className={`${
                 isOpen ? "-rotate-45 -translate-y-2" : ""
-              } w-7 h-[2px] bg-gray-700 transition`}
+              } w-7 h-0.5 bg-gray-700 transition`}
             />
           </button>
         )}
@@ -84,7 +84,7 @@ const Header = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 120, damping: 20 }}
-            className="fixed top-0 right-0 w-full sm:w-[50%] h-[100vh] bg-black text-white flex flex-col items-center justify-center gap-10"
+            className="fixed top-0 right-0 w-full sm:w-[50%] h-screen bg-black text-white flex flex-col items-center justify-center gap-10"
           >
             <Link
               href="/"
