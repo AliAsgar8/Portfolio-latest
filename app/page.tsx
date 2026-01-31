@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Header from "./component/layout/Header";
-import Hero from "./component/section/Hero";
-import About from "./component/section/About";
-import Experience from "./component/section/Experience";
-import SmoothScrollProvider from "./lib/SmoothScroll";
-import ProjectCard from "./component/section/ProjectCard";
+import Header from "@/app/component/layout/Header";
+import Hero from "@/app/component/section/Hero";
+import About from "@/app/component/section/About";
+import Experience from "@/app/component/section/Experience";
+import SmoothScrollProvider from "@/app/lib/SmoothScroll";
+import ProjectCard from "@/app/component/section/ProjectCard";
 
 export default function Home() {
   return (
@@ -12,8 +12,8 @@ export default function Home() {
       <Header />
       <Hero />
       <About />
-      <ProjectCard />
-      <Experience />
+      {/* <ProjectCard /> */}
+      {/* <Experience /> */}
       <div className="h-[300vh] bg-green-500"></div>
     </SmoothScrollProvider>
   );
