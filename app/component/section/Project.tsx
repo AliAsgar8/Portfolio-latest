@@ -1,7 +1,8 @@
 "use client";
-import { useScroll, useTransform, motion } from "motion/react";
-import Image from "next/image";
+
 import { useRef } from "react";
+import Image from "next/image";
+import { useScroll, useTransform, motion } from "motion/react";
 
 type ProjectProps = {
   i: number;
@@ -22,14 +23,14 @@ const Project = ({ i, title, image, description, color }: ProjectProps) => {
   return (
     <div
       ref={container}
-      className="h-[100vh] flex justify-center items-center sticky top-0"
+      className="h-screen flex justify-center items-center sticky top-0"
     >
       <motion.div
         style={{
           backgroundColor: color,
           top: `calc(-10% + ${i * 25}px`,
         }}
-        className="flex justify-center items-center relative  px-10 rounded-3xl h-[400px] w-[800px]"
+        className="flex justify-center items-center relative  px-10 rounded-3xl h-100 w-200"
       >
         <div className="text-white w-1/2">
           <h3 className="text-3xl font-bold">{title}</h3>
