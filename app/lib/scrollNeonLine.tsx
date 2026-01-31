@@ -22,7 +22,7 @@ export default function ScrollNeonLine({ targetRef }: Props) {
 
         {/* Neon animated line */}
         <motion.div
-          className="w-0.75 bg-[#00f0ff] shadow-[0_0_12px_#00f0ff] origin-top absolute"
+          className="w-0.75  bg-[#E3FF54] shadow-[0_0_12px_#00f0ff] origin-top absolute"
           style={{ height: neonHeight }}
         />
       </div>

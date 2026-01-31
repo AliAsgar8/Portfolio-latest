@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       <About />
       {/* <ProjectCard /> */}
-      {/* <Experience /> */}
+      <Experience />
       <div className="h-[300vh] bg-green-500"></div>
     </SmoothScrollProvider>
   );

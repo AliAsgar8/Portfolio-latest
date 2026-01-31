@@ -1,78 +1,88 @@
 "use client";
-import { useScroll } from "motion/react";
-import { useEffect, useRef } from "react";
-import ScrollNeonLine from "../../lib/scrollNeonLine";
 
-const Experience = () => {
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-  const pathRef = useRef<SVGPathElement | null>(null);
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+import ScrollNeonLine from "@/app/lib/scrollNeonLine";
 
-  useEffect(() => {
-    const path = pathRef.current;
-    const section = sectionRef.current;
+export default function Experience() {
+  const sectionRef = useRef<HTMLDivElement>(null);
 
-    if (!path || !section) return;
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start center", "end end"],
+  });
 
-    const pathLength = path.getTotalLength();
-
-    // Initial setup
-    path.style.strokeDasharray = `${pathLength}`;
-    path.style.strokeDashoffset = `${pathLength}`;
-
-    let ticking = false;
-
-    const updatePath = () => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-
-      // Calculate scroll progress ONLY for this section
-      const progress = (scrollY + windowHeight - sectionTop) / sectionHeight;
-
-      const clampedProgress = Math.min(Math.max(progress, 0), 1);
-
-      path.style.strokeDashoffset = `${pathLength * (1 - clampedProgress)}`;
-
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updatePath);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", onScroll);
-    updatePath();
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
-  return (
-    <div
-      ref={sectionRef}
-      className="relative h-[200vh] bg-gray-300 flex justify-between items-center px-20"
-    >
-      {/* SVG */}
-      <svg
-        viewBox="0 0 319 391"
-        fill="none"
-        className="absolute left-10 top-0 h-full"
-      >
-        <path
-          ref={pathRef}
-          d="M0.870384 16.492C107.119 10.3165 124.584 22.991 116.87 60.492C83.2064 190.954 110.032 212.596 202.87 200.492C303.703 199.189 319.192 218.314 290.87 279.492C278.491 376.632 241.93 390.71 136.87 361.492"
-          stroke="#00f0ff"
-          strokeWidth="10"
-          fill="none"
-        />
-      </svg>
-      <ScrollNeonLine targetRef={sectionRef} />
-    </div>
+  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const backgroundColor = useTransform(
+    scrollYProgress,
+    [0, 0.1],
+    ["#ffffff", "#000000"],
   );
-};
 
-export default Experience;
+  return (
+    <>
+      <motion.div
+        style={{ backgroundColor }}
+        ref={sectionRef}
+        className="relative pb-20  px-5 md:px-20 transition-all duration-500"
+      >
+        <svg
+          viewBox="0 0 272 529"
+          fill="none"
+          className="absolute right-0  top-0 h-full "
+        >
+          <motion.path
+            d="M270.594 14.9586C270.594 14.9586 189.594 20.9586 136.594 49.9587C83.594 78.9588 64.5938 118.958 70.5939 154.959C76.5939 190.959 97.5938 256.959 51.5939 279.959C5.59406 302.959 11.5938 317.959 23.594 332.959C35.5943 347.959 133.594 363.959 125.594 418.959C117.594 473.959 45.5938 528.959 31.5938 509.959"
+            stroke="#E3FF54"
+            strokeWidth="5"
+            fill="none"
+            pathLength={1}
+            style={{ pathLength }}
+          />
+        </svg>
+        <ScrollNeonLine targetRef={sectionRef} />
+        <div className="grid grid-cols-12 gap-y-10 md:gap-y-0 h-screen  md:h-[200vh] text-gray-400">
+          <div className="grid col-span-12 md:col-start-7 md:pl-20">
+            <div>
+              <h1 className="text-4xl md:text-5xl">
+                Lorem ipsum dolor sit amet.
+              </h1>
+              <p className="text-md md:text-lg">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
+                laborum neque consequatur consectetur placeat ipsum commodi
+                blanditiis, impedit asperiores quidem. Similique dignissimos
+                delectus ipsa dolorem iusto velit doloremque, odio officia.
+              </p>
+            </div>
+          </div>
+          <div className="grid justify-start col-span-12  md:col-end-8 md:max-w-3xl">
+            <div>
+              <h1 className="text-4xl md:text-5xl">
+                Lorem ipsum dolor sit amet.
+              </h1>
+              <p className="text-md md:text-lg">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
+                laborum neque consequatur consectetur placeat ipsum commodi
+                blanditiis, impedit asperiores quidem. Similique dignissimos
+                delectus ipsa dolorem iusto velit doloremque, odio officia.
+              </p>
+            </div>
+          </div>
+          <div className="grid col-span-12 md:col-start-7 md:pl-20">
+            <div>
+              <h1 className="text-4xl md:text-5xl">
+                Lorem ipsum dolor sit amet.
+              </h1>
+              <p className="text-md md:text-lg">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
+                laborum neque consequatur consectetur placeat ipsum commodi
+                blanditiis, impedit asperiores quidem. Similique dignissimos
+                delectus ipsa dolorem iusto velit doloremque, odio officia.
+              </p>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </>
+  );
+}
