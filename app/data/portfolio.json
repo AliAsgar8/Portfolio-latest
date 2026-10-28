@@ -1,0 +1,61 @@
+{
+  "name": "Your Name",
+  "role": "Software Engineer",
+  "availability": "Available for full-time roles & freelance work",
+  "headline": "Software Engineer building modern digital products.",
+  "summary": "I design and build fast, responsive web and mobile applications for products, businesses, and teams.",
+  "stackLine": "React · Next.js · TypeScript · React Native",
+  "nav": [
+    { "label": "Work", "href": "#work" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "About", "href": "#about" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "socials": {
+    "email": "you@email.com",
+    "linkedin": "https://linkedin.com/in/yourname",
+    "github": "https://github.com/yourname"
+  },
+  "projects": [
+    {
+      "title": "Project One",
+      "description": "Short description of the project.",
+      "tech": ["Next.js", "TypeScript", "Tailwind CSS"],
+      "liveUrl": "https://example.com",
+      "githubUrl": "https://github.com/yourname/project-one"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Company",
+      "role": "Software Engineer",
+      "period": "June 2025 – Present",
+      "location": "Remote",
+      "bullets": [
+        "Built and shipped production web apps.",
+        "Improved performance and DX across the team."
+      ],
+      "tech": ["React", "Next.js", "TypeScript"]
+    }
+  ],
+  "skills": [
+    {
+      "title": "Core",
+      "items": ["React.js", "TypeScript", "Next.js", "Node.js"]
+    },
+    {
+      "title": "UI & Styling",
+      "items": ["Tailwind CSS", "Framer Motion", "Responsive Design"]
+    }
+  ],
+  "about": {
+    "headline": "Software engineer who enjoys turning ideas into useful products.",
+    "intro": "Focused on clean interfaces, practical architecture, and reliable UX.",
+    "background": "Your background paragraph.",
+    "whatIBuild": "What you build paragraph.",
+    "currentFocus": "What you are focused on now."
+  },
+  "contact": {
+    "headline": "Have a product worth building? Let’s talk."
+  }
+}
