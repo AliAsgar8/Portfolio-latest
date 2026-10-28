@@ -3,30 +3,35 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-export function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+type ThemeToggleProps = {
+  className?: string;
+};
+
+export function ThemeToggle({ className = "" }: ThemeToggleProps) {
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
+  // Avoid icon mismatch before client theme is known
   if (!mounted) {
     return (
       <button
         type="button"
         aria-label="Toggle theme"
-        className="h-9 w-9 rounded-full border border-border"
+        className={`inline-flex h-9 w-9 items-center justify-center rounded-full ${className}`}
       />
     );
   }
 
-  const isDark = (theme === "system" ? resolvedTheme : theme) === "dark";
+  const isDark = resolvedTheme === "dark";
 
   return (
     <button
       type="button"
-      aria-label="Toggle theme"
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-bg-elevated text-sm text-text"
+      className={`inline-flex h-9 w-9 items-center justify-center rounded-full text-text hover:bg-text/5 ${className}`}
     >
       {isDark ? "☀" : "☾"}
     </button>

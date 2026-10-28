@@ -39,31 +39,29 @@
 }
 
 html {
-  color-scheme: light dark;
+  color-scheme: light;
+  background-color: var(--bg);
 }
 
-html,
-body {
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
-}
-
-*,
-*::before,
-*::after {
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease,
-    fill 0.3s ease,
-    stroke 0.3s ease;
+html.dark {
+  color-scheme: dark;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Smooth fade when switching light / dark */
+html,
+body,
+a,
+button {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
 }
 
 h1,

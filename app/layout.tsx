@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, Syne } from "next/font/google";
 import { ThemeProvider } from "@/app/components/ThemeProvider";
+import { ThemeScript } from "@/app/components/ThemeScript";
 import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
@@ -14,7 +15,7 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name — Portfolio",
+  title: "Ali — Portfolio",
   description: "Software Engineer portfolio",
 };
 
@@ -25,6 +26,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${instrumentSans.variable} ${syne.variable} h-full antialiased`}
     >
+      <head>
+        <ThemeScript />
+      </head>
       <body className="flex min-h-full flex-col bg-bg text-text">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
