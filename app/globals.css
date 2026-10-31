@@ -12,6 +12,11 @@
   --neon: #2f6fed;
   --neon-soft: rgba(47, 111, 237, 0.35);
   --glow: rgba(61, 139, 253, 0.16);
+  --band: #ffffff;
+  --band-text: #141414;
+  --band-muted: #5c5c5c;
+  --band-border: #e4e0d7;
+  --band-card: #f7f5f0;
 }
 
 .dark {
@@ -24,6 +29,11 @@
   --neon: #d4f534;
   --neon-soft: rgba(212, 245, 52, 0.28);
   --glow: rgba(212, 245, 52, 0.28);
+  --band: #111111;
+  --band-text: #f4f2ec;
+  --band-muted: #a0a4ae;
+  --band-border: #2a2d36;
+  --band-card: #171a21;
 }
 
 @theme inline {
@@ -36,15 +46,6 @@
   --color-neon: var(--neon);
   --font-sans: var(--font-body);
   --font-display: var(--font-heading);
-}
-
-html {
-  color-scheme: light;
-  background-color: var(--bg);
-}
-
-html.dark {
-  color-scheme: dark;
 }
 
 body {
@@ -69,4 +70,35 @@ h2,
 h3,
 h4 {
   font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Theme wipe — vertical curtain (bytariq-style) */
+::view-transition-old(root) {
+  z-index: 1;
+  animation: none;
+}
+
+::view-transition-new(root) {
+  z-index: 2147483646;
+  animation: theme-wipe 0.75s ease-in-out both;
+  mask-repeat: no-repeat;
+}
+
+html[data-theme-transition="down"]::view-transition-new(root) {
+  mask-image: linear-gradient(#000 0%, #000 58%, transparent 100%);
+  mask-position: center top;
+}
+
+html[data-theme-transition="up"]::view-transition-new(root) {
+  mask-image: linear-gradient(transparent 0%, #000 42%, #000 100%);
+  mask-position: center bottom;
+}
+
+@keyframes theme-wipe {
+  0% {
+    mask-size: 100% 0%;
+  }
+  100% {
+    mask-size: 100% 175%;
+  }
 }

@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useScroll } from "framer-motion";
 import type { NavItem } from "@/app/types/portfolio";
 import { Logo } from "@/app/components/Logo";
 import { ThemeToggle } from "@/app/components/ThemeToggle";
+
+const COMPACT_AFTER = 40; // px — switch to floating pill after this
 
 type HeaderProps = {
   name: string;
@@ -11,24 +14,20 @@ type HeaderProps = {
   contactHref?: string;
 };
 
-export function Header({
-  name,
-  nav,
-  contactHref = "#contact",
-}: HeaderProps) {
+export function Header({ name, nav, contactHref = "#contact" }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { scrollY } = useScroll();
 
+  // 1) Scroll → compact header
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 24);
-    };
+    const sync = (y: number) => setScrolled(y > COMPACT_AFTER);
 
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    sync(scrollY.get()); // page may already be scrolled on load
+    return scrollY.on("change", sync); // then keep updating while scrolling
+  }, [scrollY]);
 
+  // 2) Mobile menu open → lock page scroll + Esc to close
   useEffect(() => {
     if (!menuOpen) return;
 
@@ -50,41 +49,35 @@ export function Header({
     <>
       <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
         <div
-          className={`pointer-events-auto mx-auto w-full transition-[max-width,padding,margin] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-            scrolled
-              ? "mt-3 max-w-[min(920px,calc(100%-1.5rem))] px-0 md:mt-4"
-              : "mt-0 max-w-6xl px-6 sm:px-8"
+          className={`pointer-events-auto mx-auto w-full transition-all duration-500 sm:px-8 ease-out mt-3 ${
+            scrolled ? " max-w-5xl px-3" : " max-w-6xl px-6"
           }`}
         >
           <div
-            className={`flex items-center justify-between gap-3 transition-[background-color,box-shadow,border-radius,backdrop-filter,padding,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+            className={`flex items-center justify-between gap-3 overflow-visible border px-3 py-3 transition-all duration-500 ease-out ${
               scrolled
-                ? "rounded-[1.65rem] border border-border/80 bg-bg-elevated/80 px-3 py-2 shadow-[0_12px_40px_-18px_rgba(0,0,0,0.45)] backdrop-blur-xl dark:bg-[#12141a]/80 sm:px-4"
-                : "rounded-none border border-transparent bg-transparent px-0 py-4 sm:py-5"
+                ? "rounded-[1.65rem] border-border/80 bg-bg-elevated/80 shadow-2xl backdrop-blur-xl dark:bg-[#12141a]"
+                : "rounded-none border-transparent bg-transparent shadow-none backdrop-blur-none"
             }`}
           >
             <a
-              href="#top"
-              className="group flex min-w-0 items-center gap-2.5 rounded-xl outline-offset-4"
+              href="/"
+              className="group flex min-w-0 items-center gap-2.5 overflow-visible rounded-xl outline-offset-4"
               onClick={closeMenu}
             >
-              <Logo size={scrolled ? 34 : 38} />
-              <span
-                className={`font-display truncate font-semibold tracking-tight text-text transition-all duration-400 ${
-                  scrolled
-                    ? "max-w-0 overflow-hidden opacity-0 md:max-w-[8rem] md:opacity-100"
-                    : "max-w-[8rem] text-[1.05rem] opacity-100 sm:text-lg"
-                }`}
-              >
+              <span className="inline-flex shrink-0">
+                <Logo size={38} />
+              </span>
+              <span className="font-display text-lg font-semibold text-text">
                 {name}
               </span>
             </a>
 
             <nav
-              className={`hidden items-center md:flex ${
+              className={`hidden items-center border backdrop-blur-md transition-all duration-500 ease-out md:flex ${
                 scrolled
-                  ? "gap-0.5"
-                  : "gap-1 rounded-2xl border border-border/70 bg-bg-elevated/55 px-1.5 py-1.5 backdrop-blur-md dark:bg-bg-elevated/40"
+                  ? "gap-0.5 rounded-2xl border-transparent bg-transparent px-0 py-0"
+                  : "gap-1 rounded-2xl border-border/70 bg-bg-elevated/55 px-1.5 py-1.5 dark:bg-bg-elevated/40"
               }`}
               aria-label="Primary"
             >
@@ -102,10 +95,10 @@ export function Header({
             <div className="flex items-center gap-1.5 sm:gap-2">
               <a
                 href={contactHref}
-                className={`hidden items-center gap-1.5 text-[0.85rem] font-medium transition-colors sm:inline-flex ${
+                className={`hidden items-center gap-1.5 rounded-2xl text-[0.85rem] font-medium transition-all duration-500 ease-out sm:inline-flex ${
                   scrolled
-                    ? "rounded-2xl bg-text px-3.5 py-2 text-bg hover:opacity-90"
-                    : "text-text hover:text-neon"
+                    ? "bg-text px-3.5 py-2 text-bg hover:opacity-90"
+                    : "bg-transparent px-3.5 py-2 text-text hover:text-neon"
                 }`}
               >
                 Say hello

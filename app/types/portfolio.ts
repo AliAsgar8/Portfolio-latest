@@ -13,6 +13,7 @@ export type Project = {
   title: string;
   description: string;
   tech: string[];
+  status?: string;
   liveUrl?: string;
   githubUrl?: string;
 };

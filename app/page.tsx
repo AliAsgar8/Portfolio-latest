@@ -1,5 +1,6 @@
-import { Container } from "@/app/components/Container";
 import { Header } from "@/app/components/Header";
+import { Hero } from "@/app/components/Hero";
+import { WorkSection } from "@/app/components/WorkSection";
 import { getPortfolio } from "@/app/lib/getPortfolio";
 
 export default function Home() {
@@ -11,57 +12,32 @@ export default function Home() {
       <Header name={data.name} nav={data.nav} contactHref="#contact" />
 
       <main className="flex flex-1 flex-col pt-28">
-        <Container
-          as="section"
-          className="flex min-h-[70vh] flex-col justify-center gap-3 py-16"
-        >
-          <p className="text-sm uppercase tracking-[0.18em] text-muted">
-            Header preview
-          </p>
-          <h1 className="font-display max-w-xl text-4xl font-semibold tracking-tight sm:text-5xl">
-            Scroll to see the compact bar.
-          </h1>
-          <p className="max-w-md text-muted">
-            Top state stays open with name + nav. After a short scroll it
-            settles into a floating glass bar.
-          </p>
-        </Container>
+        <Hero data={data} />
+        <WorkSection projects={data.projects} />
 
-        <Container
-          as="section"
-          id="work"
-          className="min-h-[50vh] scroll-mt-28 py-16"
-        >
-          <h2 className="font-display text-2xl font-semibold">Work</h2>
-          <p className="mt-2 text-muted">Section placeholder.</p>
-        </Container>
-
-        <Container
-          as="section"
+        <section
           id="experience"
-          className="min-h-[50vh] scroll-mt-28 py-16"
+          className="mx-auto w-full max-w-6xl px-6 py-16 sm:px-8 min-h-[50vh] scroll-mt-28"
         >
           <h2 className="font-display text-2xl font-semibold">Experience</h2>
           <p className="mt-2 text-muted">Section placeholder.</p>
-        </Container>
+        </section>
 
-        <Container
-          as="section"
+        <section
           id="about"
-          className="min-h-[50vh] scroll-mt-28 py-16"
+          className="mx-auto w-full max-w-6xl px-6 py-16 sm:px-8 min-h-[50vh] scroll-mt-28"
         >
           <h2 className="font-display text-2xl font-semibold">About</h2>
           <p className="mt-2 text-muted">Section placeholder.</p>
-        </Container>
+        </section>
 
-        <Container
-          as="section"
+        <section
           id="contact"
-          className="min-h-[50vh] scroll-mt-28 py-16"
+          className="mx-auto w-full max-w-6xl px-6 py-16 sm:px-8 min-h-[50vh] scroll-mt-28"
         >
           <h2 className="font-display text-2xl font-semibold">Contact</h2>
           <p className="mt-2 text-muted">Section placeholder.</p>
-        </Container>
+        </section>
       </main>
     </>
   );

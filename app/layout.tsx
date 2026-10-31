@@ -12,10 +12,11 @@ const instrumentSans = Instrument_Sans({
 const syne = Syne({
   variable: "--font-heading",
   subsets: ["latin"],
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
-  title: "Ali — Portfolio",
+  title: "Ali Asgar — Portfolio",
   description: "Software Engineer portfolio",
 };
 

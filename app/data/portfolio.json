@@ -1,9 +1,9 @@
 {
-  "name": "Ali",
+  "name": "Ali Asgar",
   "role": "Software Engineer",
   "availability": "Available for full-time roles & freelance work",
   "headline": "Software Engineer building modern digital products.",
-  "summary": "I design and build fast, responsive web and mobile applications for products, businesses, and teams.",
+  "summary": "I design and build fast, responsive web and mobile applications for products, businesses, and teams — from polished interfaces to full-stack features.",
   "stackLine": "React · Next.js · TypeScript · React Native",
   "nav": [
     { "label": "Work", "href": "#work" },
@@ -18,11 +18,27 @@
   },
   "projects": [
     {
-      "title": "Project One",
-      "description": "Short description of the project.",
-      "tech": ["Next.js", "TypeScript", "Tailwind CSS"],
+      "title": "Portfolio",
+      "description": "Personal site with theme support, motion, and a clean product-focused layout.",
+      "tech": ["Next.js", "TypeScript", "Tailwind"],
+      "status": "Live",
       "liveUrl": "https://example.com",
-      "githubUrl": "https://github.com/yourname/project-one"
+      "githubUrl": "https://github.com/AliAsgar8/Portfolio-latest"
+    },
+    {
+      "title": "Project Two",
+      "description": "A web app focused on clean UX, fast performance, and practical product features.",
+      "tech": ["React", "TypeScript", "Tailwind CSS"],
+      "status": "Live",
+      "liveUrl": "https://example.com",
+      "githubUrl": "https://github.com/yourname/project-two"
+    },
+    {
+      "title": "Project Three",
+      "description": "Full-stack product work — APIs, auth, and a polished interface in one system.",
+      "tech": ["Next.js", "Node.js", "PostgreSQL"],
+      "status": "Currently Building",
+      "githubUrl": "https://github.com/yourname/project-three"
     }
   ],
   "experience": [
@@ -41,7 +57,7 @@
   "skills": [
     {
       "title": "Core",
-      "items": ["React.js", "TypeScript", "Next.js", "Node.js"]
+      "items": ["React", "Next.js", "TypeScript", "RN", "Node"]
     },
     {
       "title": "UI & Styling",
