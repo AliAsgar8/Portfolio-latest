@@ -13,6 +13,8 @@ export type Project = {
   title: string;
   description: string;
   tech: string[];
+  /** Client / real work vs personal builds */
+  kind?: "Client" | "Personal";
   status?: string;
   liveUrl?: string;
   githubUrl?: string;

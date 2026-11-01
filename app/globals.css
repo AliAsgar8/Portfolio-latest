@@ -102,3 +102,21 @@ html[data-theme-transition="up"]::view-transition-new(root) {
     mask-size: 100% 175%;
   }
 }
+
+/* About — infinite skill strip */
+.skill-marquee {
+  animation: skill-scroll 28s linear infinite;
+}
+
+.skill-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes skill-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
