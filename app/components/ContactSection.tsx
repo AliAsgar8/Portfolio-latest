@@ -104,15 +104,6 @@ export function ContactSection({
           ))}
         </ul>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          className="mt-16 text-xs text-muted"
-        >
-          © {new Date().getFullYear()} {name}
-        </motion.p>
       </div>
     </section>
   );
