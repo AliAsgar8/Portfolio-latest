@@ -1,0 +1,117 @@
+{
+  "name": "Ali Asgar",
+  "role": "Frontend Developer",
+  "availability": "Available for full-time roles & freelance work",
+  "headline": "Frontend developer building polished products — expanding into full-stack.",
+  "summary": "About 1.5 years shipping modern web UIs with React and Next.js. I also build personal projects and am growing into backend so I can own features end-to-end.",
+  "stackLine": "React · Next.js · TypeScript · Node · Tailwind",
+  "nav": [
+    { "label": "Work", "href": "#work" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "About", "href": "#about" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "socials": {
+    "email": "aliasgar@email.com",
+    "linkedin": "https://linkedin.com/in/yourname",
+    "github": "https://github.com/AliAsgar8"
+  },
+  "projects": [
+    {
+      "title": "Client product UI",
+      "description": "Production frontend for a real product — responsive screens, reusable components, and clean UX shipped with the team.",
+      "tech": ["React", "Next.js", "TypeScript", "Tailwind"],
+      "kind": "Client",
+      "status": "Shipped",
+      "liveUrl": "https://example.com",
+      "githubUrl": "https://github.com/AliAsgar8"
+    },
+    {
+      "title": "E-commerce dashboard",
+      "description": "Client dashboard for catalog, orders, and basic analytics — focused on speed, clarity, and mobile-friendly layouts.",
+      "tech": ["React", "TypeScript", "Tailwind", "REST APIs"],
+      "kind": "Client",
+      "status": "Shipped",
+      "liveUrl": "https://example.com"
+    },
+    {
+      "title": "Portfolio",
+      "description": "This site — theme wipe, scroll curve, and motion-led layout to show how I design and ship interfaces.",
+      "tech": ["Next.js", "TypeScript", "Framer Motion", "Tailwind"],
+      "kind": "Personal",
+      "status": "Live",
+      "githubUrl": "https://github.com/AliAsgar8/Portfolio-latest"
+    },
+    {
+      "title": "Task board app",
+      "description": "Personal Kanban-style app with drag-and-drop boards — practice for complex UI state and interactions.",
+      "tech": ["React", "TypeScript", "Tailwind"],
+      "kind": "Personal",
+      "status": "Live",
+      "githubUrl": "https://github.com/AliAsgar8"
+    },
+    {
+      "title": "Full-stack notes API",
+      "description": "Personal full-stack practice: auth, CRUD notes, and Postgres — learning backend by shipping, not only tutorials.",
+      "tech": ["Next.js", "Node.js", "PostgreSQL", "TypeScript"],
+      "kind": "Personal",
+      "status": "Currently Building",
+      "githubUrl": "https://github.com/AliAsgar8"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Your Company",
+      "role": "Frontend Developer",
+      "period": "2024 – Present",
+      "location": "Onsite / Hybrid",
+      "bullets": [
+        "Built and shipped production web UIs with React, Next.js, and TypeScript.",
+        "Turned designs into responsive, accessible interfaces used by real users.",
+        "Collaborated with design and backend to deliver features on the frontend.",
+        "Improved performance, reuse, and code quality across shared UI pieces."
+      ],
+      "tech": ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      "company": "Previous Studio (Dummy)",
+      "role": "Junior Frontend Developer",
+      "period": "2023 – 2024",
+      "location": "Remote",
+      "bullets": [
+        "Implemented landing pages and marketing sites from Figma using React and Tailwind.",
+        "Fixed UI bugs, improved responsive layouts, and supported release cycles.",
+        "Learned component patterns, Git workflows, and shipping with a small team."
+      ],
+      "tech": ["React", "JavaScript", "CSS", "Git"]
+    }
+  ],
+  "skills": [
+    {
+      "title": "Web",
+      "items": ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS"]
+    },
+    {
+      "title": "Styling",
+      "items": ["Tailwind CSS", "Responsive Design", "Framer Motion"]
+    },
+    {
+      "title": "Backend",
+      "items": ["Node.js", "REST APIs", "PostgreSQL", "Auth basics"]
+    },
+    {
+      "title": "Tools",
+      "items": ["Git", "GitHub", "Figma", "Vercel", "Cursor"]
+    }
+  ],
+  "about": {
+    "headline": "Frontend-first engineer growing into full-stack.",
+    "intro": "I care about clean interfaces, practical architecture, and shipping work that feels fast and reliable.",
+    "background": "I’ve spent about 1.5 years as a frontend developer on real product UIs. Alongside that, I create personal projects to explore ideas and level up.",
+    "whatIBuild": "I build web applications with strong frontend craft — and I’m adding backend skills so I can own features from the interface through the API.",
+    "currentFocus": "Deepening backend fundamentals (APIs, auth, databases) while keeping frontend quality high on client and personal work."
+  },
+  "contact": {
+    "headline": "Building something? Let’s talk."
+  }
+}
